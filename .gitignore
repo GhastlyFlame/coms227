@@ -1,0 +1,5 @@
+*.tmp
+*.un~
+.idea/
+out/
+.metadata/

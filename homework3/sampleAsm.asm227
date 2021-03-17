@@ -1,0 +1,79 @@
+data:
+n 0
+i 0
+x 0
+sqrt 0
+const_1 1
+const_2 2
+const_3 3
+labels:
+startLoopOne
+endLoopOne
+startLoopTwo
+endLoopTwo
+startLoopThree
+endLoopThree
+startLoopFour
+endLoopFour
+next
+end
+instructions:
+read n              read val from user
+load n
+store x             set x = to val
+startLoopOne        start of loop
+jumpz endLoopOne    while (i < n / 2)
+load i
+add const_1         increment i
+store i
+load n              Use a form of newtons method to aprox sqrt
+div x
+add x
+div const_2
+store x
+load n
+div const_2
+sub i
+jump startLoopOne   Return to top of loop
+endLoopOne
+load x
+store sqrt          write value of sqrt
+startLoopTwo
+load n              find and print all "2" factors
+jumpz end
+mod const_2
+sub const_1
+jumpz endLoopTwo
+load n
+write const_2
+div const_2
+store n
+jump startLoopTwo
+endLoopTwo
+load const_3        Start at 3, and iterate to sqrt(n), find all factors
+store i
+startLoopThree
+load sqrt
+sub i
+jumpn endLoopThree
+startLoopFour
+load n
+jumpz end
+mod i
+jumpz next
+jump endLoopFour
+next
+load n
+write i
+div i
+store n
+load i
+add const_2
+endLoopFour
+endLoopThree
+load n              check if there is a single unfound factor
+sub const_2
+jumpn end
+write n
+end
+halt
